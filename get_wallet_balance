@@ -1,0 +1,22 @@
+import requests
+
+# Функция для получения баланса криптовалюты по адресу кошелька
+def get_wallet_balance(wallet_address, currency):
+    url = f'https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses={wallet_address}&vs_currencies={currency}'
+    
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        balance = data[wallet_address.lower()][currency.lower()]
+        return balance
+    else:
+        return None
+
+# Пример использования функции для получения баланса Ethereum на адресе кошелька
+wallet_address = '0x1c7bb86514cE7e1763a4411bb8e91E6eC82A8e5d'  # Замените на свой адрес кошелька
+currency = 'eth'  # Валюта (например, 'eth' для Ethereum)
+balance = get_wallet_balance(wallet_address, currency)
+if balance:
+    print(f"Баланс на адресе {wallet_address}: {balance} {currency.upper()}")
+else:
+    print("Не удалось получить баланс")
