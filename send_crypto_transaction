@@ -1,0 +1,12 @@
+# Функция для выполнения транзакции отправки криптовалюты
+def send_crypto_transaction(sender_address, receiver_address, amount, currency):
+    # Ваш код здесь для отправки транзакции
+    pass
+
+# Пример использования функции для отправки криптовалюты
+sender_address = 'SENDER_WALLET_ADDRESS'  # Адрес отправителя
+receiver_address = 'RECEIVER_WALLET_ADDRESS'  # Адрес получателя
+amount = 0.5  # Сумма для отправки
+currency = 'eth'  # Валюта (например, 'eth' для Ethereum)
+
+send_crypto_transaction(sender_address, receiver_address, amount, currency)
